@@ -1,4 +1,4 @@
-package com.henry.ctd.data.pair
+package com.henry.ctd.data
 
 case class Pair[A, B](a: A, b: B)
 
@@ -9,3 +9,5 @@ def fst[A](pair: Pair[A, ?]): A = pair match {
 def snd[B](pair: Pair[?, B]): B = pair match {
   case Pair(_, b) => b
 }
+
+def productFactorizer[A, B, C](p: C => A)(q: C => B)(x: C): Pair[A, B] = Pair(p(x), q(x))

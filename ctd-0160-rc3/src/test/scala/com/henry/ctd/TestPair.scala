@@ -1,7 +1,9 @@
+package com.henry.ctd
+
 import org.junit.Test
 import org.junit.Assert._
 
-import com.henry.ctd.data.pair._
+import com.henry.ctd.data._
 
 class TestPair {
   @Test def testFst(): Unit = {
@@ -14,5 +16,12 @@ class TestPair {
     assertEquals(snd(Pair("Hello", 1)), 1)
     assertEquals(snd(Pair(1, true)), true)
     assertEquals(snd(Pair(true, "Hello")), "Hello")
+  }
+
+  @Test def testProductFactorizer(): Unit = {
+    val intToStrAndBool = productFactorizer[C = Int](_.toString)(_ > 4)
+    assertEquals(intToStrAndBool(3), Pair("3", false))
+    assertEquals(intToStrAndBool(4), Pair("4", false))
+    assertEquals(intToStrAndBool(5), Pair("5", true))
   }
 }

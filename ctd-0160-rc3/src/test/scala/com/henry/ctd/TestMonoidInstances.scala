@@ -1,3 +1,5 @@
+package com.henry.ctd
+
 import org.junit.Test
 import org.junit.Assert._
 
